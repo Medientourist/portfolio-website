@@ -7,7 +7,7 @@ interface TabButtonProps {
 }
 
 const TabButton = ({ active, selectTab, children}: TabButtonProps) => {
-  const buttonClasses = active ? "text-white border-purple-800 border-b" : "text-[#ADB7BE]";
+  const buttonClasses = active ? "text-white border-primary-800 border-b" : "text-[#ADB7BE]";
   return (
     <button onClick={selectTab}>
         <p className={`mr-3 font-semibold hover:text-white ${buttonClasses}`}>
