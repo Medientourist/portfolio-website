@@ -32,9 +32,9 @@ const TAB_DATA = [
 
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
-  const handleTabChange = (id) => {
+  const handleTabChange = (id: string) => {
     startTransition(() => {
       setTab(id);
     });
@@ -42,14 +42,12 @@ const AboutSection = () => {
 
   return (
     <section>
-      <div className="md:grid md:grid-cols-2 gap-8 items-center px-4 py-8 xl:gap-16 sm:py-16">
+      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
         <Image
           src="/images/computer-setup.jpg"
           width={500}
           height={500}
           alt="Computer Setup"
-          width={500}
-          height={500}
         />
         <div className="flex flex-col h-full mt-4 md:mt-0 text-left">
           <h2 className="text-4xl font-bold mb-4">About Me</h2>
@@ -60,7 +58,7 @@ const AboutSection = () => {
             incidunt adipisci maiores et.
           </p>
         </div>
-        <div className="flex flex-row mt-8">
+        <div className="flex flex-row justify-start mt-8">
           <TabButton
             selectTab={() => handleTabChange("skills")}
             active={tab === "skills"}
@@ -76,9 +74,7 @@ const AboutSection = () => {
             Zertifikate{" "}
           </TabButton>
         </div>
-        <div className="mt-8">
-          {TAB_DATA.find((t)=> t.id === tab).content}
-        </div>
+        <div className="mt-8">{TAB_DATA.find((t) => t.id === tab)?.content}</div>
       </div>
     </section>
   );
