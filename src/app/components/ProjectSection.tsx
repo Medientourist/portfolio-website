@@ -46,18 +46,18 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section>
+    <section id="projects">
       <h2 className="text-center text-4xl font-bold mt-4 mb-8 md:mb-12">
         My Projects
       </h2>
       <div className="flex flex-row justify-center items-center gap-2 py-6">
         <ProjectTag
-          onClick={() => handleTagChange("All")}
+          onClick={handleTagChange}
           name="All"
           isSelected={tag === "All"}
         />
         <ProjectTag
-          onClick={() => handleTagChange("Web")}
+          onClick={handleTagChange}
           name="Web"
           isSelected={tag === "Web"}
         />
@@ -69,7 +69,7 @@ const ProjectsSection = () => {
             variants={cardVariants}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.4}}
+            transition={{ duration: 0.3, delay: index * 0.4 }}
           >
             <ProjectCard
               key={project.id}

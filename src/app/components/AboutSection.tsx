@@ -9,13 +9,11 @@ const TAB_DATA = [
     id: "skills",
     content: (
       <ul className="list-disc pl-2">
-        <li>Next.js</li>
+        <li>Next.js/React</li>
         <li>GraphQL</li>
-        <li>React</li>
-        <li>TypeScript</li>
+        <li>TypeScript/JavaScript</li>
         <li>Tailwind CSS</li>
-        <li>JavaScript</li>
-        <li>HTML</li>
+        <li>HTML/CSS</li>
       </ul>
     ),
   },
@@ -23,7 +21,7 @@ const TAB_DATA = [
     title: "Certifications",
     id: "certifications",
     content: (
-      <ul>
+      <ul className="list-disc pl-2">
         <li>Frontend Developer Program - OpenCampus</li>
       </ul>
     ),
@@ -41,7 +39,7 @@ const AboutSection = () => {
   };
 
   return (
-    <section>
+    <section id="about">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
         <Image
           src="/images/computer-setup.jpg"
@@ -57,24 +55,26 @@ const AboutSection = () => {
             distinctio obcaecati quod nobis dicta odit consequatur, libero
             incidunt adipisci maiores et.
           </p>
+          <div className="flex flex-row justify-start mt-8">
+            <TabButton
+              selectTab={() => handleTabChange("skills")}
+              active={tab === "skills"}
+            >
+              {" "}
+              Skills{" "}
+            </TabButton>
+            <TabButton
+              selectTab={() => handleTabChange("certifications")}
+              active={tab === "certifications"}
+            >
+              {" "}
+              Zertifikate{" "}
+            </TabButton>
+          </div>
+          <div className="mt-8">
+            {TAB_DATA.find((t) => t.id === tab)?.content}
+          </div>
         </div>
-        <div className="flex flex-row justify-start mt-8">
-          <TabButton
-            selectTab={() => handleTabChange("skills")}
-            active={tab === "skills"}
-          >
-            {" "}
-            Skills{" "}
-          </TabButton>
-          <TabButton
-            selectTab={() => handleTabChange("certifications")}
-            active={tab === "certifications"}
-          >
-            {" "}
-            Zertifikate{" "}
-          </TabButton>
-        </div>
-        <div className="mt-8">{TAB_DATA.find((t) => t.id === tab)?.content}</div>
       </div>
     </section>
   );

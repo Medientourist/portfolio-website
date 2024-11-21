@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
 interface ProjectTagProps {
-    name: string;
-    onClick: (newTag: string) => void;
-    isSelected: boolean;
+  name: string;
+  onClick: (newTag: string) => void;
+  isSelected: boolean;
 }
 
 const ProjectTag = ({ name, onClick, isSelected }: ProjectTagProps) => {
   const buttonStyles = isSelected
-    ? "bg-primary-500"
+    ? "border-primary-500"
     : "text-[#ADB7BE] border-slate-600 hover:border-white";
   return (
     <button
@@ -20,4 +20,4 @@ const ProjectTag = ({ name, onClick, isSelected }: ProjectTagProps) => {
   );
 };
 
-export default ProjectTag
+export default ProjectTag;
